@@ -1,0 +1,7 @@
+<div class="recipe">
+    <h2>{{ title }}</h2>
+    <ul *ngFor="let ing of ingredients">
+        <li>{{ ing.text }}</li>
+    </ul>
+    <img class="image" [src]="imageUrl" />
+</div>

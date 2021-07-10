@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RecipeService } from 'src/recipe.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pagination';
+  
+  public recipes: any = [];
+
+  constructor(private _recipeService : RecipeService){}
+
+  getData(value: string){
+    this._recipeService.getRecipes(value).subscribe(
+      data => {
+        this.recipes = data.hits 
+        console.log(data.hits);      
+      }
+    );
+    
+  }
 }
